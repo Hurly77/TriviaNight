@@ -3,22 +3,22 @@ Rails.application.routes.draw do
 	get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
   get '/signout', to: 'sessions#destroy', as: 'signout'
-  resouces :categories
-  resouces :triviagames
+  resources :categories
+  resources :triviagames
 
-	resouces :users do
-        resouces :categories only: [:index, :show]
-        resouces :likes only: [:show]
+	resources :users do
+        resources :categories, only: [:index, :show]
+        resources :likes, only: [:show]
     end
   
-	resouces :games do 
-    	resources :rounds except: :index
-      resouces :categories
+	resources :games do 
+    	resources :rounds, except: :index
+      resources :categories
     end
 
 	namespace :admin do
-    	resources :TriviaGame
-      resources :Questions
+    	resources :triviagames
+      resources :questions
     end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
