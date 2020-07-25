@@ -1,0 +1,6 @@
+<h1>Welcome to Trivia Night</h1>
+<h2><%= link_to 'Sign Up', new_user_path %></h2>
+<h2><%= link_to 'Log In', signin_path %></h2>
+<h1>Welcome <%= current_user.name %></h1>
+  <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+  <%# link_to 'Logout', destroy_session_path%>

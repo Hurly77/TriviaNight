@@ -12,13 +12,10 @@
 
 ActiveRecord::Schema.define(version: 1006) do
 
-  create_table "TriviaGame", force: :cascade do |t|
-    t.string "name"
-  end
-
   create_table "games", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "subject_id"
+    t.integer "category_id"
+    t.integer "trivia_game_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -50,10 +47,17 @@ ActiveRecord::Schema.define(version: 1006) do
     t.integer "triviagame_id"
   end
 
+  create_table "trivia_games", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "email"
+    t.string "uid"
     t.string "password_digest"
     t.integer "points"
+    t.boolean "admin", default: false
   end
 
 end

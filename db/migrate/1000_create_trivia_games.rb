@@ -1,7 +1,7 @@
 class CreateTriviaGames < ActiveRecord::Migration[4.2]
 def change
-  create_table :TriviaGame do |f|
-    f.string :name
+  create_table :trivia_games do |t|
+    t.string :name
     end
   end
 end

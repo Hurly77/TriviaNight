@@ -3,5 +3,5 @@ class Game < ApplicationRecord
   has_many :questions
   belongs_to :user
   belongs_to :category
-  belongs_to :TriviaGame
+  belongs_to :trivia_game
 end
