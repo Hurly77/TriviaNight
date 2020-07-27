@@ -10,17 +10,6 @@
   </head>
 
  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-        <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
-        <a class="navbar-brand" href="<%= signout_url %>">Log Out</a>
-        <% if session[:user_id] %>
-        <a class="navbar-brand" href="<%= user_path(@current_user) %>">profile</a>
-        <% end %>
-        
-        
-        </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             

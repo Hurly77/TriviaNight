@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 1006) do
+ActiveRecord::Schema.define(version: 2020_07_26_202040) do
 
   create_table "games", force: :cascade do |t|
     t.integer "user_id"
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(version: 1006) do
     t.integer "game_id"
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.string "session_id", null: false
+    t.text "data"
+    t.index "\"update_at\"", name: "index_sessions_on_update_at"
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.string "name"
     t.integer "triviagame_id"
@@ -53,11 +60,14 @@ ActiveRecord::Schema.define(version: 1006) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "email"
-    t.string "uid"
-    t.string "password_digest"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
     t.integer "points"
     t.boolean "admin", default: false
+    t.string "provider", limit: 50, default: "", null: false
+    t.string "uid", limit: 500, default: "", null: false
   end
 
 end
