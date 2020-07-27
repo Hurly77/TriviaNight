@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: 'omniauth'}
   root 'application#home'
-
-  # get 'auth/facebook/callback', to: 'sessions#facebook'
-
-	# get '/signin', to: 'sessions#new', as: 'signin'
-  # post '/signin', to: 'sessions#create'
-
-  # get '/signout', to: 'sessions#destroy', as: 'signout'
+  
 
   # resources :categories
   # resources :triviagames
