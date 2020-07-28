@@ -2,20 +2,17 @@ require 'ostruct'
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   add_flash_types :alert, :msg, :error
-  helper_method :current_user
-  
+  before_action :config_permit_params, if: :devise_controller?
 
   def home
-  end
-
-  def current_user
-    binding.pry
-    @current_user ||= User.find session[:user_id] if session[:user_id]
-    if @current_user
-      @current_user
-    else
-      OpenStruct.new(name: "Guest")
+    if current_user.nil?
+      redirect_to new_user_registration_path
     end
   end
-  
+
+  protected
+
+  def config_permit_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  end
 end
