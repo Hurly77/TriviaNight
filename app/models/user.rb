@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :questions, through: :games
 
   devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :validatable,
+          :recoverable, :validatable,
           :omniauthable, omniauth_providers: [:facebook]
 
   def self.create_from_provider_data(provider_data)
