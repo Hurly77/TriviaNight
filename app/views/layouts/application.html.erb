@@ -11,9 +11,7 @@
 
  <body>
  <ul>
-  <li><a href="<%= root_url %>">Home</a></li>
-  <li><a href="<%= new_user_registration_url %>">signup</a></li>
-  <li></li>
+  <li><%= render 'application/links' %></li>
 </ul>       
     <div class="container"  role="main">
       <%= yield %>

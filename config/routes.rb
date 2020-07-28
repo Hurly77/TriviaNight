@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: 'omniauth'}
   root 'application#home'
+  # resources :users
   
 
   # resources :categories
   # resources :triviagames
-  # resources :users
   # resources :sessions
 
 	# resources :users do
