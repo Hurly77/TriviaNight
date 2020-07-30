@@ -1,8 +1,8 @@
 class RoundsController < ApplicationController
-  def index
-  end
-
   def new
+    @game = Game.find_by(id: params[:game_id])
+    @game.questions << Question.all
+    @round = Round.new
   end
 
   def create

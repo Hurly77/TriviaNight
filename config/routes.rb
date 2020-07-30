@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'application#home'
   # resources :users
   
-
-  # resources :categories
+    get '/questions', to: 'questions#request_api', as: 'questions'
+   resources :categories
   # resources :triviagames
   # resources :sessions
 
@@ -13,10 +13,9 @@ Rails.application.routes.draw do
   #       resources :likes, only: [:show]
   #   end
   
-	# resources :games do 
-  #   	resources :rounds, except: :index
-  #     resources :categories
-  #   end
+	resources :games do 
+      resources :rounds, except: :index
+  end
 
 	# namespace :admin do
   #   	resources :triviagames

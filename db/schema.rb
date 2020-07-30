@@ -12,6 +12,11 @@
 
 ActiveRecord::Schema.define(version: 2020_07_26_202040) do
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.integer "triviagame_id"
+  end
+
   create_table "games", force: :cascade do |t|
     t.integer "user_id"
     t.integer "category_id"
@@ -47,11 +52,6 @@ ActiveRecord::Schema.define(version: 2020_07_26_202040) do
     t.text "data"
     t.index "\"update_at\"", name: "index_sessions_on_update_at"
     t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
-  end
-
-  create_table "subjects", force: :cascade do |t|
-    t.string "name"
-    t.integer "triviagame_id"
   end
 
   create_table "trivia_games", force: :cascade do |t|
