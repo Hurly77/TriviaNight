@@ -15,7 +15,12 @@ TriviaGame.create(name: "Film")
 Category.create(name: "Entertainment: Film")
 #Questions
 #easy
-
+def create_category
+  categories.each do |name|
+    category = Category.new(name: name)
+    category.save
+  end
+end
 #medium
 #hard
 #rounds
@@ -30,3 +35,5 @@ Category.create(name: "Entertainment: Film")
     t.integer "game_id"
     t.integer "user_id"
   end
+  grades = Hash.new
+grades["Dorothy Doe"] = 9

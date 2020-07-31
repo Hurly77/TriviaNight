@@ -6,10 +6,10 @@ def change
     t.string :correct_answer
     t.string :incorrect_answers
     t.integer :points
-    t.belongs_to :round
+    t.belongs_to :round, optional: true
     t.belongs_to :category
-    t.belongs_to :game
-    t.belongs_to :user
+    t.belongs_to :game, optional: true
+    t.belongs_to :user, optional: true
     end 
   end
 end
