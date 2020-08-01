@@ -5,7 +5,7 @@ ruby '2.6.1'
 gem 'json'
 gem 'json_pure'
 gem 'httparty'
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap-sass', '3.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 # Use sqlite3 as the database for Active Record
