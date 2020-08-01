@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: 'omniauth'}
   root 'application#home'
-  # resources :users
-  
-    get '/questions', to: 'questions#request_api', as: 'questions'
+
    resources :categories
   # resources :triviagames
   # resources :sessions
