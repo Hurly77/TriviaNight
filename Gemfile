@@ -2,10 +2,12 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
+#This turns Api links to a hash
 gem 'json'
 gem 'json_pure'
-gem 'httparty'
-gem 'bootstrap-sass', '3.3.7'
+#this is so I can reset id to zero
+gem 'activerecord-reset-pk-sequence'
+gem "bootstrap-sass", ">= 3.4.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 # Use sqlite3 as the database for Active Record
@@ -18,17 +20,12 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
-gem 'ostruct'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'activerecord-session_store'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-#gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
