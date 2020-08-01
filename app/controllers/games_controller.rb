@@ -16,6 +16,6 @@ class GamesController < ApplicationController
   private
 
   def gramas
-    params.require(:game).permit(:user_id, :category_id, :trivia_game_id)
+    params.require(:game).permit(:user_id, :category_id)
   end
 end
