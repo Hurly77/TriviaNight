@@ -5,11 +5,9 @@ def change
     t.string :difficulty
     t.string :correct_answer
     t.string :incorrect_answers
-    t.integer :points
-    t.belongs_to :round, optional: true
+    t.integer :points, default: 20
     t.belongs_to :category
-    t.belongs_to :game, optional: true
-    t.belongs_to :user, optional: true
+    t.belongs_to :game, default: 0, null: false
     end 
   end
 end

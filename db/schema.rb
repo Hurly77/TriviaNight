@@ -14,18 +14,16 @@ ActiveRecord::Schema.define(version: 2020_07_26_202040) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.integer "triviagame_id"
   end
 
   create_table "games", force: :cascade do |t|
     t.integer "user_id"
     t.integer "category_id"
-    t.integer "trivia_game_id"
   end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "triviagame_id"
+    t.integer "trivia_game_id"
     t.boolean "liked"
   end
 
@@ -34,11 +32,9 @@ ActiveRecord::Schema.define(version: 2020_07_26_202040) do
     t.string "difficulty"
     t.string "correct_answer"
     t.string "incorrect_answers"
-    t.integer "points"
-    t.integer "round_id"
+    t.integer "points", default: 20
     t.integer "category_id"
-    t.integer "game_id"
-    t.integer "user_id"
+    t.integer "game_id", default: 0, null: false
   end
 
   create_table "rounds", force: :cascade do |t|
@@ -52,10 +48,6 @@ ActiveRecord::Schema.define(version: 2020_07_26_202040) do
     t.text "data"
     t.index "\"update_at\"", name: "index_sessions_on_update_at"
     t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
-  end
-
-  create_table "trivia_games", force: :cascade do |t|
-    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|

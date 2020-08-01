@@ -3,5 +3,8 @@ class Game < ApplicationRecord
   has_many :questions
   belongs_to :user
   belongs_to :category
-  belongs_to :trivia_game
+
+  def self.category_id(id)
+    Game.find_by(id: id).category_id
+  end
 end

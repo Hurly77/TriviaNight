@@ -1,6 +1,12 @@
 class Question < ApplicationRecord
-  belongs_to :round, optional: true
-  belongs_to :category
+  has_many :rounds
+  has_many :users, through: :rounds
   belongs_to :game, optional: true
-  belongs_to :user, optional: true
+  belongs_to :category
+  
+  def self.randon_from_category()
+    q = where(category_id: category).order("RANDOM()").first
+    current_user.
+  end
 end
+  
