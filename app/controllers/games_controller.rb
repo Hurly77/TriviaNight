@@ -1,10 +1,12 @@
 class GamesController < ApplicationController
-  def new
-  end
 
   def create
     @game = Game.create(gramas)
+    if @game.save
     redirect_to new_game_round_path(@game)
+    else 
+      redirect_to new_game_path
+    end
   end
 
   def show

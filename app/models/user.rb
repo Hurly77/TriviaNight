@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   has_many :games
-  has_many :likes
+  has_many :categories, through: :games
   has_many :rounds
   has_many :questions, through: :rounds
-  has_many :categories, through: :games
+  has_many :likes
 
   devise :database_authenticatable, :registerable,
           :recoverable, :validatable,

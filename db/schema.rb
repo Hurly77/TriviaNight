@@ -19,11 +19,13 @@ ActiveRecord::Schema.define(version: 2020_07_26_202040) do
   create_table "games", force: :cascade do |t|
     t.integer "user_id"
     t.integer "category_id"
+    t.integer "num_of_rounds", default: 5, null: false
+    t.string "difficulty", default: "medium", null: false
   end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "trivia_game_id"
+    t.integer "category_id"
     t.boolean "liked"
   end
 
@@ -34,13 +36,14 @@ ActiveRecord::Schema.define(version: 2020_07_26_202040) do
     t.string "incorrect_answers"
     t.integer "points", default: 20
     t.integer "category_id"
-    t.integer "game_id", default: 0, null: false
+    t.integer "game", default: 0, null: false
   end
 
   create_table "rounds", force: :cascade do |t|
     t.integer "user_id"
     t.integer "question_id"
     t.integer "game_id"
+    t.string "user_answer"
   end
 
   create_table "sessions", force: :cascade do |t|

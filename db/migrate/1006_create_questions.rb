@@ -6,8 +6,8 @@ def change
     t.string :correct_answer
     t.string :incorrect_answers
     t.integer :points, default: 20
-    t.belongs_to :category
-    t.belongs_to :game, default: 0, null: false
+    t.integer :category_id
+    t.integer :game, default: 0, null: false
     end 
   end
 end
