@@ -1,2 +1,14 @@
 <h1>Welcome <%= current_user.name %></h1>
-<%= link_to 'Categories', categories_path %>
+<p>Select a Category</p>
+<%= form_for(Game.new) do |f| %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.collection_select :category_id, Category.all, :id, :name%>
+<br>
+<p>How many rounds would you like to play<strong>(1 round is 1 question)</strong></p>
+<%= f.number_field :num_of_rounds, step: :any %>
+<p>select the level of difficulty you you want</p>
+<%= f.collection_select :difficulty, ["easy", "medium", "hard"], :to_s, :to_s, include_blank: false %>
+<br>
+<br>
+<%= f.submit "New Game" %>
+<% end %>

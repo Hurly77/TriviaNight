@@ -1,0 +1,16 @@
+<h2><%= @q.to_quot %></h2>
+<%= form_for [@game, @round] do |f| %>
+<h3>Is it</h3>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :game_id, value: current_game.id %>
+<%= f.hidden_field :question_id, value: @q.id %>
+  <ul>
+<%= f.collection_radio_buttons :question, @q.parse_data, :to_s, :to_s, include_blank: false  do |b|%>
+ <li><%= b.radio_button + b.label(:class => "collection_radio_buttons icon-star") %></li> <br>
+<% end %>
+</ul>
+ <br>
+
+<br>
+    <%= f.submit "submit question"%>
+<% end %>
