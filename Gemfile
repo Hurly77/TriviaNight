@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.1'
 #This turns Api links to a hash
 gem 'json'
-gem 'json_pure'
 #this is so I can reset id to zero
 gem 'activerecord-reset-pk-sequence'
 gem "bootstrap-sass", ">= 3.4.1"
@@ -33,16 +32,13 @@ gem 'activerecord-session_store'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-group :test, :development do
+group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
- gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
- gem 'capybara', '>= 2.15'
-
- gem 'thin'
+  gem 'pry'
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
-  gem 'pry'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
@@ -52,12 +48,12 @@ group :development do
 end
 
 group :test do
-     
-     # Adds support for Capybara system testing and selenium driver
- gem 'selenium-webdriver'
-#   # Easy installation and use of web drivers to run system tests with browsers
-   gem 'webdrivers'
- end
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  # Easy installation and use of web drivers to run system tests with browsers
+  gem 'webdrivers'
+end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
