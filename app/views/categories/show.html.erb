@@ -1,9 +1,0 @@
-<%= @category.name %>
-
-<%= form_for(Game.new) do |f| %>
-<%= f.hidden_field :category_id, value: @category.id%>
-<%= f.hidden_field :user_id, value: current_user.id %>
-<%= f.hidden_field :trivia_game_id, value: 1 %>
-
-<%= f.submit %>
-<% end %>
