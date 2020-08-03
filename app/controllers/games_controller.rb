@@ -1,5 +1,4 @@
 class GamesController < ApplicationController
-
   def create
     @game = Game.create(gramas)
     if @game.save
@@ -7,12 +6,6 @@ class GamesController < ApplicationController
     else 
       redirect_to new_game_path
     end
-  end
-
-  def show
-  end
-
-  def destroy
   end
 
   private
