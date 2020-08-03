@@ -1,0 +1,9 @@
+<h1>Lets Continue, Shall We</h1>
+<%= form_for [@game, @round]  do |f|%>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :game_id, value: current_game.id %> 
+<%= f.hidden_field :question_id, value: @q.id %> 
+
+
+<%= f.submit "Next Round"%>
+<% end %>

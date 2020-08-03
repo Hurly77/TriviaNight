@@ -1,0 +1,10 @@
+<h1>Before we begin</h1>
+<p>To whom have yet to play this game,</p>
+<p>Each round has one question and, each question is worth 20 points, if you get the question correct you'll be given 20 points</p>
+<p>However, in the event that you do not get the answer correct 20 points will be taken from you whether or not you have more than zero and, yes you can have negitive points <strong>Good Luck!!</strong></p>
+<%= form_for [@game, @round]  do |f|%>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :game_id, value: current_game.id %> 
+<%= f.hidden_field :question_id, value: @q.id %> 
+
+<%= f.submit "Start Round"%>
