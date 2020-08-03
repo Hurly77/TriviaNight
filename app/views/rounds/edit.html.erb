@@ -5,7 +5,7 @@
 <%= f.hidden_field :game_id, value: current_game.id %>
 <%= f.hidden_field :question_id, value: @q.id %>
   <ul>
-<%= f.collection_radio_buttons :question, @q.parse_data, :to_s, :to_s, include_blank: false  do |b|%>
+<%= f.collection_radio_buttons :user_answer, @q.parse_data, :to_s, :to_s, include_blank: false  do |b|%>
  <li><%= b.radio_button + b.label(:class => "collection_radio_buttons icon-star") %></li> <br>
 <% end %>
 </ul>
