@@ -2,14 +2,12 @@ class RoundsController < ApplicationController
   before_action :current_game
 def new
   @game = current_game
-  binding.pry
   @q = Question.randon_from_category(@game.category_id, @game.difficulty)
   @round = Round.new
-  current_game.questions << @q
 end
 
   def create
-    @round = Round.create(round)
+    @round = Round.create(round_params)
     @round.save
     redirect_to edit_game_round_path(@game.id, @round.id)
   end
@@ -27,8 +25,8 @@ end
   def update
     @rounds = Round.all
     @round = Round.find_by(id: params[:id])
-    @round.update(round)
-    flash[:msg] = @round.correct?(params[:question])
+    @round.update(round_params)
+    flash[:msg] = @round.correct?(params[:user_answer])
     render :show
   end
 
@@ -41,7 +39,7 @@ end
 
   private
 
-  def round
-    params.require(:round).permit(:game_id, :user_id, :question_id)
+  def round_params
+    params.require(:round).permit(:game_id, :user_id, :question_id, :user_answer)
   end
 end
