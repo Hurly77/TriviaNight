@@ -1,10 +1,10 @@
 class RoundsController < ApplicationController
   before_action :current_game
-def new
-  @game = current_game
-  @q = Question.randon_from_category(@game.category_id, @game.difficulty)
-  @round = Round.new
-end
+  def new
+    @game = current_game
+    @q = Question.randon_from_category(@game.category_id, @game.difficulty)
+    @round = Round.new
+  end
 
   def create
     @round = Round.create(round_params)
@@ -19,7 +19,6 @@ end
     @game = current_game
     @round = Round.find_by(id: params[:id])
     @q = Question.find_by(id: @round.question_id)
-    
   end
 
   def update
