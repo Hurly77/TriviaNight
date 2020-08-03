@@ -1,12 +1,11 @@
- <% if flash[:msg] %>
  <% flash.each do |type, msg| %>
   <div>
     <h1><%= msg %></h1>
+    <h2><%= current_user.points %></h2>
   </div>
-  <% end %>
 <% end %>
- <% if current_user.questions.count < 5 %>
-<%= link_to "Next Round", new_game_round_path(@game)%>
+ <% if current_user.questions.count < current_game.num_of_rounds %>
+<%= link_to "only one more click from next question", new_game_round_path(@game)%>
 <% else %>
 <%= link_to 'End Game', game_delete_rounds_path %>
 <% end %>
