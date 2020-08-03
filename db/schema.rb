@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2020_07_26_202040) do
   create_table "games", force: :cascade do |t|
     t.integer "user_id"
     t.integer "category_id"
-    t.integer "num_of_rounds", default: 5, null: false
-    t.string "difficulty", default: "medium", null: false
+    t.integer "num_of_rounds", default: 5
+    t.string "difficulty", default: "medium"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_07_26_202040) do
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
-    t.integer "points"
+    t.integer "points", default: 0
     t.boolean "admin", default: false
     t.string "provider", limit: 50, default: "", null: false
     t.string "uid", limit: 500, default: "", null: false

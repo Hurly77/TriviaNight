@@ -9,7 +9,7 @@ def change
     #recoverable
     t.string :reset_password_token
     t.datetime :reset_password_sent_at
-    t.integer :points
+    t.integer :points, default: 0
     t.boolean :admin, default: false
     end
   end

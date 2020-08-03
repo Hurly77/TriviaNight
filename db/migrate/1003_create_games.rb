@@ -3,8 +3,8 @@ def change
   create_table :games do |t|
     t.integer :user_id
     t.integer :category_id
-    t.integer :num_of_rounds, default: 5, null: false
-    t.string :difficulty, default: "medium", null: false
+    t.integer :num_of_rounds, default: 5
+    t.string :difficulty, default: 'medium'
     end
   end
 end
