@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   add_flash_types :alert, :msg, :error
   before_action :config_permit_params, if: :devise_controller?
   helper_method :current_game
-  helper_method :current_question
 
   def home
     if current_user.nil?
